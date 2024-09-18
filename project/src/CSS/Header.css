@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  height: 45px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+button {
+  width: 45px;
+  height: 25px;
+  border-radius: 7px;
+}
+
+.btn-eng {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  margin: 0.5rem;
+}
+.btn-thai {
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+}
+.header-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+h3 {
+  margin-right: 0.5rem;
+}

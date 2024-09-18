@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #ee8100;
+}
+
+.menu-box img {
+  width: 120px;
+  height: 120px;
+  border-radius: 7px;
+}
+.menu-box {
+  display: flex;
+  width: 400px;
+  height: 130px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+}
+.menu-name {
+  padding: 0.5rem 1rem;
+}
+.menu-box-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.menu-price {
+  color: var(--primary-color);
+}
