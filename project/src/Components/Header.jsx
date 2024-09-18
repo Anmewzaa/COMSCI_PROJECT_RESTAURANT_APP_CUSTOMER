@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <>
       <div className="header">
-        <h2>Paradise Steak House</h2>
+        <h2 className="sarabun-semibold">Paradise Steak House</h2>
         <div className="btn">
           <button className="btn-thai">ไทย</button>
           <button className="btn-eng">ENG</button>
@@ -36,7 +36,7 @@ const Header = () => {
         {category && category.length > 0 && (
           <div>หมวดหมู่ : {category[0].category_name.thai}</div>
         )}
-        <h3>โต๊ะที่ : {table.table_number}</h3>
+        <h3 className="sarabun-semibold">โต๊ะที่ : {table.table_number}</h3>
       </div>
     </>
   );

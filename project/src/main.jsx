@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import "./global.css";
 //------ Page -------
 import CategoryPage from "./Pages/CategoryPage";
 import MenuPage from "./Pages/MenuPage";
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/order/categories",
+    element: <MenuPage />,
+  },
+  {
+    path: "/",
     element: <MenuPage />,
   },
   {
