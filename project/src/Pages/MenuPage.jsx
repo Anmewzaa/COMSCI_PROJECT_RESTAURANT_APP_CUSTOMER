@@ -1,26 +1,29 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../CSS/MenuPage.css";
 import Header from "../Components/Header";
 // Router DOM
 import { useSearchParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 // Axois
 import axios from "axios";
 // Ant Design
 import { Button, Drawer } from "antd";
 
 const MenuPage = () => {
-  const [menu, setMenu] = useState([]);
   const [searchParam] = useSearchParams();
   const id = searchParam.get("id");
   const categories = searchParam.get("categories");
-  const navigte = useNavigate();
+  const [menu, setMenu] = useState([]);
+
+  // Drawer Code
+  const [currentItem, setCurrentItem] = useState(null);
   const [open, setOpen] = useState(false);
-  const showDrawer = () => {
+  const showDrawer = (item) => {
+    setCurrentItem(item);
     setOpen(true);
   };
   const onClose = () => {
     setOpen(false);
+    setCurrentItem(null);
   };
 
   useEffect(() => {
@@ -41,7 +44,7 @@ const MenuPage = () => {
           menu.map((item, index) => {
             return (
               <div key={index}>
-                <div className="menu-box" onClick={showDrawer}>
+                <div className="menu-box" onClick={() => showDrawer(item)}>
                   <div className="img-box">
                     <img
                       src={`${import.meta.env.VITE_API_URL}/images/${
@@ -55,12 +58,12 @@ const MenuPage = () => {
                     <div className="menu-price">฿ {item.menu_price}</div>
                   </div>
                 </div>
-                <Drawer title="Basic Drawer" onClose={onClose} open={open}>
-                  <p>{item.menu_name.thai}</p>
-                </Drawer>
               </div>
             );
           })}
+        <Drawer title="Basic Drawer" onClose={onClose} open={open} size="large">
+          {currentItem && <>{currentItem.menu_name.thai}</>}
+        </Drawer>
       </div>
     </div>
   );
