@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { FloatButton } from "antd";
 import { useState, useEffect } from "react";
 import "../css/style.css";
 // ------ React Router Dom ------
@@ -27,6 +28,7 @@ const CategoryPage = () => {
   }, []);
   return (
     <div className="app-container">
+      <FloatButton onClick={() => console.log("onClick")} />
       <div className="grid-box">
         {category.map((item, index) => {
           return (
