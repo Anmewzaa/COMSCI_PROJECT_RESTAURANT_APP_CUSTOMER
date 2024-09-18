@@ -2,16 +2,18 @@ import axios from "axios";
 import { FloatButton } from "antd";
 import { useState, useEffect } from "react";
 import "../css/CategoryPage.css";
+import "../Components/Header";
 // ------ React Router Dom ------
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
+import Header from "../Components/Header";
 
 const CategoryPage = () => {
   const [table, setTable] = useState([]);
-  // const [menu, setMenu] = useState([]);
   const [category, setCategory] = useState([]);
   const [searchParam] = useSearchParams();
   const id = searchParam.get("id");
   const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/table/get/${id}`)
@@ -21,18 +23,16 @@ const CategoryPage = () => {
     axios.get(`${import.meta.env.VITE_API_URL}/category/get`).then((result) => {
       setCategory(result.data.response);
     });
-    // axios.get(`${import.meta.env.VITE_API_URL}/menu/get`).then((result) => {
-    //   setMenu(result.data.response);
-    // });
   }, []);
   return (
     <div className="app-container">
       <FloatButton onClick={() => console.log("onClick")} />
+      <Header />
       <div className="grid-box">
         {category.map((item, index) => {
           return (
             <div
-              className="menu-box"
+              className="category-box"
               key={index}
               onClick={() => {
                 navigate(`categories?id=${id}&categories=${item._id}`);
