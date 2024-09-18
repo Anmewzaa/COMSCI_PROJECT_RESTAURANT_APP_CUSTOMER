@@ -1,0 +1,29 @@
+.header {
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem;
+}
+button {
+  width: 45px;
+  height: 25px;
+  border-radius: 7px;
+}
+
+.btn-eng {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+.btn-thai {
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+}
+.header-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  margin: 0 1rem;
+}

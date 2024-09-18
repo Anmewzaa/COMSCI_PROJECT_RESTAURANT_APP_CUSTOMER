@@ -75,10 +75,8 @@ const CategoryPage = () => {
             return (
               <>
                 <div className="MenuBox">
-                  <Link
-                    to={`categories?id=${id}&categories=${item._id}`}
-                  >
-                    {item.category_name.thai}
+                  <Link to={`categories?id=${id}&categories=${item._id}`}>
+                    หมวดหมู่ {item.category_name.thai}
                   </Link>
                 </div>
               </>
