@@ -1,8 +1,7 @@
-import React from "react";
 import axios from "axios";
 import { FloatButton } from "antd";
 import { useState, useEffect } from "react";
-import "../css/style.css";
+import "../css/CategoryPage.css";
 // ------ React Router Dom ------
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 
