@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "../css/style.css";
 // ------ React Router Dom ------
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useNavigate } from "react-router-dom";
 
 const CategoryPage = () => {
   const [table, setTable] = useState([]);
@@ -11,6 +11,7 @@ const CategoryPage = () => {
   const [category, setCategory] = useState([]);
   const [searchParam] = useSearchParams();
   const id = searchParam.get("id");
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/table/get/${id}`)
@@ -25,14 +26,29 @@ const CategoryPage = () => {
     // });
   }, []);
   return (
-    <div>
+    <div className="app-container">
       <div className="grid-box">
-        <div className="menu-box">1</div>
-        <div className="menu-box">2</div>
-        <div className="menu-box">3</div>
-        <div className="menu-box">4</div>
-        <div className="menu-box">5</div>
-        <div className="menu-box">6</div>
+        {category.map((item, index) => {
+          return (
+            <div
+              className="menu-box"
+              key={index}
+              onClick={() => {
+                navigate(`categories?id=${id}&categories=${item._id}`);
+              }}
+            >
+              <div className="image-box">
+                <img
+                  src={`${import.meta.env.VITE_API_URL}/images/${
+                    item.category_image
+                  }`}
+                  alt=""
+                />
+              </div>
+              <h3>{item.category_name.thai}</h3>
+            </div>
+          );
+        })}
       </div>
       {/* <div>โต๊ะที่ {table.table_number}</div> */}
 
@@ -59,7 +75,7 @@ const CategoryPage = () => {
               <>
                 <div className="MenuBox">
                   <Link
-                    to={`categories?id=${id}&categories=${item.category_name.english}`}
+                    to={`categories?id=${id}&categories=${item._id}`}
                   >
                     {item.category_name.thai}
                   </Link>
