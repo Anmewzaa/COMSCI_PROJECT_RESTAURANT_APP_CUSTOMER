@@ -44,9 +44,7 @@ const CategoryPage = () => {
             return (
               <>
                 <div>
-                  <Link
-                    to={`categories?id=${id}&categories=${item.category_name.english}`}
-                  >
+                  <Link to={`categories?id=${id}&categories=${item._id}`}>
                     หมวดหมู่ {item.category_name.thai}
                   </Link>
                 </div>
