@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import "../css/box.css";
+import "../css/style.css";
 // ------ React Router Dom ------
 import { useSearchParams, Link } from "react-router-dom";
 
@@ -26,7 +26,16 @@ const CategoryPage = () => {
   }, []);
   return (
     <div>
-      <div>โต๊ะที่ {table.table_number}</div>
+      <div className="grid-box">
+        <div className="menu-box">1</div>
+        <div className="menu-box">2</div>
+        <div className="menu-box">3</div>
+        <div className="menu-box">4</div>
+        <div className="menu-box">5</div>
+        <div className="menu-box">6</div>
+      </div>
+      {/* <div>โต๊ะที่ {table.table_number}</div> */}
+
       {/* <div>
         {menu &&
           menu.map((item) => {
@@ -42,7 +51,8 @@ const CategoryPage = () => {
             );
           })}
       </div> */}
-      <div>
+
+      {/* <div>
         {category &&
           category.map((item) => {
             return (
@@ -57,7 +67,8 @@ const CategoryPage = () => {
               </>
             );
           })}
-      </div>
+      </div> */}
+
       {/* <div>{category && category.map(item)}</div> */}
       {/* Hello{JSON.stringify(category)} */}
       {/* <div>{category.category_name}</div> */}

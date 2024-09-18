@@ -1,0 +1,8 @@
+.grid-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.menu-box {
+  background: rgb(230, 135, 135);
+}
