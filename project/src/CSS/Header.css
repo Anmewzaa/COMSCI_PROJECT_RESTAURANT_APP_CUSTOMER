@@ -19,6 +19,7 @@ button {
   color: white;
   background-color: var(--primary-color);
   border: none;
+  margin-right: 5px;
 }
 .header-table {
   display: flex;
