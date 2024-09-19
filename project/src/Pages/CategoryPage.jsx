@@ -51,39 +51,6 @@ const CategoryPage = () => {
           );
         })}
       </div>
-      {/* <div>โต๊ะที่ {table.table_number}</div> */}
-
-      {/* <div>
-        {menu &&
-          menu.map((item) => {
-            return (
-              <>
-                <img
-                  src={`${import.meta.env.VITE_API_URL}/images/${
-                    item.menu_image
-                  }`}
-                  alt=""
-                />
-              </>
-            );
-          })}
-      </div> */}
-
-      {/* <div>
-        {category &&
-          category.map((item) => {
-            return (
-              <>
-                <div className="MenuBox">
-                  <Link to={`categories?id=${id}&categories=${item._id}`}>
-                    หมวดหมู่ {item.category_name.thai}
-                  </Link>
-                </div>
-              </>
-            );
-          })}
-      </div> */}
-
       {/* <div>{category && category.map(item)}</div> */}
       {/* Hello{JSON.stringify(category)} */}
       {/* <div>{category.category_name}</div> */}

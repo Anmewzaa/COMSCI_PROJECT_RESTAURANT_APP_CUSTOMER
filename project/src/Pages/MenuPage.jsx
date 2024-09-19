@@ -62,7 +62,12 @@ const MenuPage = () => {
             );
           })}
         <Drawer title="Basic Drawer" onClose={onClose} open={open} size="large">
-          {currentItem && <>{currentItem.menu_name.thai}</>}
+          {currentItem && (
+            <>
+              <img src="" alt="" />
+              {currentItem.menu_name.thai}
+            </>
+          )}
         </Drawer>
       </div>
     </div>

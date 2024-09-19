@@ -4,6 +4,7 @@ import "./global.css";
 //------ Page -------
 import CategoryPage from "./Pages/CategoryPage";
 import MenuPage from "./Pages/MenuPage";
+import BucketPage from "./Pages/BucketPage";
 //------ React Router ------
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // -------Router ----------
