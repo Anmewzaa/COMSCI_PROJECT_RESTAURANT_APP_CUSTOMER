@@ -22,6 +22,10 @@ const router = createBrowserRouter([
     element: <MenuPage />,
   },
   {
+    path: "/bucket",
+    element: <BucketPage />,
+  },
+  {
     path: "*",
     element: <h2>Please Re-Scanning QR Code</h2>,
   },

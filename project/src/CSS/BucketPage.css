@@ -1,0 +1,27 @@
+.app-container p {
+  display: flex;
+  margin: 0 1rem;
+}
+
+.bucket-box1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 5px;
+}
+
+/* orderlist box */
+.orderlist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.order-count {
+  margin-left: 15%;
+  color: var(--primary-color);
+  text-align: left;
+}
+
+.order-name {
+}

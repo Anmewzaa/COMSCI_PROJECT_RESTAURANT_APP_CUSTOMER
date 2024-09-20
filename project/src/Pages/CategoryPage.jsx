@@ -2,7 +2,6 @@ import axios from "axios";
 import { FloatButton } from "antd";
 import { useState, useEffect } from "react";
 import "../css/CategoryPage.css";
-import "../Components/Header";
 // ------ React Router Dom ------
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import Header from "../Components/Header";

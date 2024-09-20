@@ -28,3 +28,8 @@ button {
   height: 40px;
   margin: 0 1rem;
 }
+
+.return-button {
+  color: var(--primary-color);
+  font-size: 20px;
+}
