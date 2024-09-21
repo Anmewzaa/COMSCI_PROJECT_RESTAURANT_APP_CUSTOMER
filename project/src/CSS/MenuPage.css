@@ -36,3 +36,29 @@
   display: flex;
   align-items: center;
 }
+.menu-popup img {
+  width: 385px;
+  height: 385px;
+}
+.menu-detail h2,
+p {
+  margin: 0.5rem;
+}
+.menu-option {
+  width: 370px;
+  height: 100%;
+  border: 1px solid red;
+  border-radius: 7px;
+  margin-left: 0.3rem;
+}
+.add-menu-button {
+  width: 370px;
+  height: 45px;
+  margin-left: 0.3rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 20px;
+}
