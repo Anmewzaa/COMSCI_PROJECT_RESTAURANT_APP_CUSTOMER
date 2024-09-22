@@ -11,7 +11,6 @@
   width: 120px;
   height: 120px;
   border-radius: 7px;
-  margin: 1rem;
 }
 .menu-box {
   display: flex;
@@ -21,7 +20,7 @@
   border-radius: 7px;
 }
 .menu-name {
-  margin-top: 0.5rem;
+  margin-left: 1rem;
 }
 .menu-box-container {
   display: grid;
@@ -40,25 +39,65 @@
   width: 385px;
   height: 385px;
 }
-.menu-detail h2,
-p {
+.menu-detail-h2 {
   margin: 0.5rem;
+}
+.menu-datail-container p {
+  margin: 0.5rem;
+}
+.menu-detail {
+  width: 385px;
+  margin: 0 auto;
 }
 .menu-option {
   width: 370px;
   height: 100%;
-  border: 1px solid red;
+  border: 1.5px solid #adb5bd;
   border-radius: 7px;
-  margin-left: 0.3rem;
+  margin: 0 auto;
 }
 .add-menu-button {
   width: 370px;
   height: 45px;
-  margin-left: 0.3rem;
-  border: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  cursor: pointer;
   background-color: var(--primary-color);
   color: #fff;
-  position: fixed;
-  bottom: 0;
-  margin-bottom: 20px;
+  border: none;
+}
+.sub-option {
+  font-size: 18px;
+  display: block;
+  margin: 0 1rem;
+}
+.menu-describe {
+  margin: 0.5rem;
+}
+.option-inside-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 1rem;
+  align-items: center;
+}
+.must-have-option {
+  width: 65px;
+  height: 28px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--primary-color);
+  color: #fff;
+  background-color: var(--primary-color);
+  border-radius: 40px;
+}
+.option-name p {
+  color: var(--primary-color);
+}
+.option-box {
+  padding-bottom: 15px;
 }

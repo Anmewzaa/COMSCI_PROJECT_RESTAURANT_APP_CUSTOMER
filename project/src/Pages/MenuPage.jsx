@@ -13,7 +13,6 @@ const MenuPage = () => {
   const id = searchParam.get("id");
   const categories = searchParam.get("categories");
   const [menu, setMenu] = useState([]);
-  //const [suboption, setSuboption] = useState([])
 
   // Drawer Code
   const [currentItem, setCurrentItem] = useState(null);
@@ -30,10 +29,10 @@ const MenuPage = () => {
   const [value, setValue] = useState([]);
   const onChange = (optionId, selectedValue) => {
     setValue((prevValue) => {
-      const undatedValue = prevValue.filter(
+      const updatedValues = prevValue.filter(
         (item) => item.option_id !== optionId
       );
-      return [...updatedValues, { optionId: optionId, value: selectedValue }];
+      return [...updatedValues, { option_id: optionId, value: selectedValue }];
     });
   };
   const allOptionsSelected = () => {
@@ -81,8 +80,8 @@ const MenuPage = () => {
         option: value,
       },
     ];
+    localStorage.setItem("Cart", JSON.stringify(dataToSave));
   }
-  localStorage.setItem("Cart", JSON.stringify(dataToSave));
 
   useEffect(() => {
     axios
@@ -129,21 +128,33 @@ const MenuPage = () => {
           {currentItem &&
             menu.map((currentItem, index) => {
               return (
-                <div className="menu-detail" key={index}>
-                  <img
-                    src={`${import.meta.env.VITE_API_URL}/images/${
-                      currentItem.menu_image
-                    }`}
-                    alt=""
-                  />
-                  <h2>{currentItem.menu_name.thai}</h2>
-                  <p>{currentItem.menu_describe.thai}</p>
+                <div className="menu-detail-container" key={index}>
+                  <div className="menu-detail">
+                    <img
+                      src={`${import.meta.env.VITE_API_URL}/images/${
+                        currentItem.menu_image
+                      }`}
+                      alt=""
+                    />
+                    <h2 className="menu-detail-h2">
+                      {currentItem.menu_name.thai}
+                    </h2>
+                    <p className="menu-describe">
+                      {currentItem.menu_describe.thai}
+                    </p>
+                  </div>
                   <div className="menu-option">
                     {currentItem.menu_option_id &&
                       currentItem.menu_option_id.map((option, index) => {
                         return (
                           <div key={index} className="option-box">
-                            <h4>{option.option_name.thai}</h4>
+                            <div className="option-inside-box">
+                              <div className="option-name">
+                                <h2>{option.option_name.thai}</h2>
+                                <p>เลือก 1 รายการ</p>
+                              </div>
+                              <p className="must-have-option">ต้องการ</p>
+                            </div>
                             <Radio.Group
                               checked
                               onChange={(e) =>
@@ -161,6 +172,7 @@ const MenuPage = () => {
                                     <Radio
                                       key={index}
                                       value={subOption.sub_option_name.thai}
+                                      className="sub-option"
                                     >
                                       {subOption.sub_option_name.thai}
                                     </Radio>
