@@ -5,20 +5,20 @@ import { useState, useEffect } from "react";
 import { FloatButton } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 // ------ Import CSS ------
-import "../CSS/BucketPage.css";
+// import "../CSS/CartPage.css";
 import Header from "../Components/Header";
 // ------ React Router Dom ------
 import { useNavigate, useSearchParams } from "react-router-dom";
 // import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const BucketPage = () => {
+const CartPage = () => {
   const [menu, setMenu] = useState([]);
   const [searchParam] = useSearchParams();
   const id = searchParam.get("id");
   // ------ useEffect ------
   useEffect(() => {
-    axios;
+    // axios;
   });
 
   return (
@@ -78,4 +78,4 @@ const BucketPage = () => {
   );
 };
 
-export default BucketPage;
+export default CartPage;

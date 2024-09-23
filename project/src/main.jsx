@@ -4,7 +4,7 @@ import "./global.css";
 //------ Page -------
 import CategoryPage from "./Pages/CategoryPage";
 import MenuPage from "./Pages/MenuPage";
-import BucketPage from "./Pages/BucketPage";
+import CartPage from "./Pages/CartPage";
 //------ React Router ------
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // -------Router ----------
@@ -18,12 +18,8 @@ const router = createBrowserRouter([
     element: <MenuPage />,
   },
   {
-    path: "/",
-    element: <MenuPage />,
-  },
-  {
-    path: "/bucket",
-    element: <BucketPage />,
+    path: "/cart",
+    element: <CartPage />,
   },
   {
     path: "*",
