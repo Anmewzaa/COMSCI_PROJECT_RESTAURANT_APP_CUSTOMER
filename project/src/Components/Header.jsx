@@ -19,9 +19,11 @@ const Header = () => {
       .then((result) => {
         setTable(result.data.response);
       });
-    axios.get(`${import.meta.env.VITE_API_URL}/category/get`).then((result) => {
-      setCategory(result.data.response);
-    });
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/categories/get`)
+      .then((result) => {
+        setCategory(result.data.response);
+      });
   }, []);
   return (
     <>
