@@ -19,6 +19,7 @@ button {
   color: white;
   background-color: var(--primary-color);
   border: none;
+  margin-right: 5px;
 }
 .header-table {
   display: flex;
@@ -26,4 +27,9 @@ button {
   align-items: center;
   height: 40px;
   margin: 0 1rem;
+}
+
+.return-button {
+  color: var(--primary-color);
+  font-size: 20px;
 }

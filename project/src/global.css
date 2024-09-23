@@ -1,3 +1,6 @@
+:root {
+  --primary-color: #ee8100;
+}
 * {
   margin: 0;
   padding: 0;
