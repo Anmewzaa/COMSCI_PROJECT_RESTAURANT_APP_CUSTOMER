@@ -28,8 +28,50 @@ const BucketPage = () => {
       <div className="bucket-box1">
         <div className="orderlist">
           <div className="order-count">x1</div>
-          <div className="order-name">สเต็กเนื้อริบอาย</div>
+          <div className="order-details">
+            <div className="order-name">สเต็กเนื้อริบอาย</div>
+            <div className="order-sub">มีเดียมแรร์</div>
+          </div>
           <div className="order-price">฿ 189.00</div>
+        </div>
+        <div className="order-total">
+          <div className="total-label">รวมราคาทั้งหมด</div>
+          <div className="total-price">฿ 189.00</div>
+        </div>
+        <div className="button-container">
+          <button className="button-add-more">สั่งอาหารเพิ่ม</button>
+          <button className="button-order">ส่งรายการอาหาร</button>
+        </div>
+      </div>
+      <p>รายการอาหารที่สั่งไปแล้ว</p>
+      <div className="bucket-box2">
+        <div className="orderlist">
+          <div className="order-count">x1</div>
+          <div className="order-details">
+            <div className="order-name">สเต็กปลาดอลลี่</div>
+            <div className="order-status">สถานะ: กำลังปรุง</div>
+          </div>
+          <div className="order-price">฿ 129.00</div>
+        </div>
+        <div className="orderlist">
+          <div className="order-count">x1</div>
+          <div className="order-details">
+            <div className="order-name">สลัดกุ้งทอด</div>
+            <div className="order-status">สถานะ: เสร็จสิ้น</div>
+          </div>
+          <div className="order-price">฿ 139.00</div>
+        </div>
+        <div className="orderlist">
+          <div className="order-count">x1</div>
+          <div className="order-details">
+            <div className="order-name">สามสหาย</div>
+            <div className="order-status">สถานะ: เสร็จสิ้น</div>
+          </div>
+          <div className="order-price">฿ 129.00</div>
+        </div>
+        <div className="order-total">
+          <div className="total-label">รวมราคาทั้งหมด</div>
+          <div className="total-price">฿ 397.00</div>
         </div>
       </div>
     </div>
