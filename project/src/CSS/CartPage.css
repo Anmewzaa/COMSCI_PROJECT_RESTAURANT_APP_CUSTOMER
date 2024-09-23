@@ -1,0 +1,96 @@
+.app-container {
+  padding: 20px;
+}
+
+.bucket-box1,
+.bucket-box2 {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.orderlist {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.order-count {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.order-details {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.order-name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.order-sub,
+.order-status {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.order-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.total-label {
+  color: #888;
+}
+
+.total-price {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.button-add-more,
+.button-order {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.button-add-more {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.button-order {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
