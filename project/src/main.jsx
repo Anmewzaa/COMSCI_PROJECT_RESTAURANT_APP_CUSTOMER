@@ -7,6 +7,8 @@ import MenuPage from "./Pages/MenuPage";
 import CartPage from "./Pages/CartPage";
 //------ React Router ------
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// Ant Design
+import { Result } from "antd";
 // -------Router ----------
 const router = createBrowserRouter([
   {
@@ -18,12 +20,20 @@ const router = createBrowserRouter([
     element: <MenuPage />,
   },
   {
-    path: "/cart",
+    path: "/order/cart",
     element: <CartPage />,
   },
   {
     path: "*",
-    element: <h2>Please Re-Scanning QR Code</h2>,
+    element: (
+      <>
+        <Result
+          status="404"
+          title="404"
+          subTitle="Sorry, the page you visited does not exist."
+        />
+      </>
+    ),
   },
 ]);
 

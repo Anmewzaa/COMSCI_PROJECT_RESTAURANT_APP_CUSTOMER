@@ -1,12 +1,16 @@
+// React
 import { useEffect, useState } from "react";
+// CSS
 import "../CSS/MenuPage.css";
-import Header from "../Components/Header";
 // Router DOM
 import { useSearchParams } from "react-router-dom";
 // Axois
 import axios from "axios";
 // Ant Design
 import { Button, Drawer, message, Radio } from "antd";
+// Components
+import HeaderComponent from "../Components/HeaderComponent";
+import BackComponent from "../Components/BackComponent";
 
 const MenuPage = () => {
   const [searchParam] = useSearchParams();
@@ -92,7 +96,7 @@ const MenuPage = () => {
   }, []);
   return (
     <div className="menu-header">
-      <Header />
+      <HeaderComponent />
       <div className="menu-box-container">
         {/* ID : {id}
         <br />
@@ -200,6 +204,7 @@ const MenuPage = () => {
           </button>
         </Drawer>
       </div>
+      <BackComponent />
     </div>
   );
 };
