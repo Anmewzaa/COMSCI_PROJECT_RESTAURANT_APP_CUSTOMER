@@ -1,13 +1,13 @@
 .menu-header {
-  border: 1px solid red;
-  width: 430px;
   height: 100vh;
   margin: 0 auto;
+  width: auto;
 }
 .menu-box img {
   width: 120px;
   height: 120px;
   border-radius: 7px;
+  margin: 1rem;
 }
 .menu-box {
   display: flex;
@@ -15,9 +15,10 @@
   height: 130px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 7px;
+  margin: 1rem;
 }
 .menu-name {
-  margin-left: 1rem;
+  margin-top: 0.5rem;
 }
 .menu-box-container {
   display: grid;
@@ -65,6 +66,7 @@
   background-color: var(--primary-color);
   color: #fff;
   border: none;
+  border-radius: 7px;
 }
 .sub-option {
   font-size: 18px;
@@ -97,4 +99,19 @@
 }
 .option-box {
   padding-bottom: 15px;
+}
+@media screen and (min-width: 430px) {
+  .menu-box {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (min-width: 850px) {
+  .menu-box-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .menu-box-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
