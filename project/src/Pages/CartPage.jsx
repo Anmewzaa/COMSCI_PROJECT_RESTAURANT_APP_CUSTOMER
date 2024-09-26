@@ -9,6 +9,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 // Components
 import HeaderComponent from "../Components/HeaderComponent";
+import BackComponent from "../Components/BackComponent";
 
 const CartPage = () => {
   const [menu, setMenu] = useState([]);
@@ -21,6 +22,7 @@ const CartPage = () => {
 
   return (
     <div className="app-container">
+      <BackComponent />
       <HeaderComponent />
       <div className="cart-container">
         <p>รายการอาหารในตะกร้าของฉัน</p>
