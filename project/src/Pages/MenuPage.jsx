@@ -129,67 +129,66 @@ const MenuPage = () => {
           size="large"
           className="menu-popup"
         >
-          {currentItem &&
-            menu.map((currentItem, index) => {
-              return (
-                <div className="menu-detail-container" key={index}>
-                  <div className="menu-detail">
-                    <img
-                      src={`${import.meta.env.VITE_API_URL}/images/${
-                        currentItem.menu_image
-                      }`}
-                      alt=""
-                    />
-                    <h2 className="menu-detail-h2">
-                      {currentItem.menu_name.thai}
-                    </h2>
-                    <p className="menu-describe">
-                      {currentItem.menu_describe.thai}
-                    </p>
-                  </div>
-                  <div className="menu-option">
-                    {currentItem.menu_option_id &&
-                      currentItem.menu_option_id.map((option, index) => {
-                        return (
-                          <div key={index} className="option-box">
-                            <div className="option-inside-box">
-                              <div className="option-name">
-                                <h2>{option.option_name.thai}</h2>
-                                <p>เลือก 1 รายการ</p>
-                              </div>
-                              <p className="must-have-option">ต้องการ</p>
-                            </div>
-                            <Radio.Group
-                              checked
-                              onChange={(e) =>
-                                onChange(option.option_id, e.target.value)
-                              }
-                              value={
-                                value.find(
-                                  (v) => v.option_id === option.option_id
-                                )?.value || ""
-                              }
-                            >
-                              {option.sub_option &&
-                                option.sub_option.map((subOption, index) => {
-                                  return (
-                                    <Radio
-                                      key={index}
-                                      value={subOption.sub_option_name.thai}
-                                      className="sub-option"
-                                    >
-                                      {subOption.sub_option_name.thai}
-                                    </Radio>
-                                  );
-                                })}
-                            </Radio.Group>
-                          </div>
-                        );
-                      })}
-                  </div>
+          {currentItem && (
+            <>
+              <div className="menu-detail-container">
+                <div className="menu-detail">
+                  <img
+                    src={`${import.meta.env.VITE_API_URL}/images/${
+                      currentItem.menu_image
+                    }`}
+                    alt=""
+                  />
+                  <h2 className="menu-detail-h2">
+                    {currentItem.menu_name.thai}
+                  </h2>
+                  <p className="menu-describe">
+                    {currentItem.menu_describe.thai}
+                  </p>
                 </div>
-              );
-            })}
+                <div className="menu-option">
+                  {currentItem.menu_option_id &&
+                    currentItem.menu_option_id.map((option, index) => {
+                      return (
+                        <div key={index} className="option-box">
+                          <div className="option-inside-box">
+                            <div className="option-name">
+                              <h2>{option.option_name.thai}</h2>
+                              <p>เลือก 1 รายการ</p>
+                            </div>
+                            <p className="must-have-option">ต้องการ</p>
+                          </div>
+                          <Radio.Group
+                            checked
+                            onChange={(e) =>
+                              onChange(option.option_id, e.target.value)
+                            }
+                            value={
+                              value.find(
+                                (v) => v.option_id === option.option_id
+                              )?.value || ""
+                            }
+                          >
+                            {option.sub_option &&
+                              option.sub_option.map((subOption, index) => {
+                                return (
+                                  <Radio
+                                    key={index}
+                                    value={subOption.sub_option_name.thai}
+                                    className="sub-option"
+                                  >
+                                    {subOption.sub_option_name.thai}
+                                  </Radio>
+                                );
+                              })}
+                          </Radio.Group>
+                        </div>
+                      );
+                    })}
+                </div>
+              </div>
+            </>
+          )}
           <br />
           {/* RESULT = {JSON.stringify(value)} */}
           <button
