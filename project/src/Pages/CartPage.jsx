@@ -5,8 +5,6 @@ import "../CSS/CartPage.css";
 // ------ React Router Dom ------
 import { useNavigate, useSearchParams } from "react-router-dom";
 // import { useSearchParams, Link, useNavigate } from "react-router-dom";
-// ------ Import Components ------
-import "../Components/BackComponent";
 // ------ Axios ------
 import axios from "axios";
 // Components
