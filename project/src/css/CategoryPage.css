@@ -20,7 +20,7 @@
   transition: all 0.2s;
 }
 .category-box:hover {
-  transform: scale(3.04);
+  transform: scale(1.04);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 14px;
 }
 
