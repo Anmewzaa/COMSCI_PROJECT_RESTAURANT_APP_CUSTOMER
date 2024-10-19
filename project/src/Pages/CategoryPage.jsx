@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react";
 // ------ Axios ------
 import axios from "axios";
-// ------ CSS ------
-import "../CSS/CategoryPage.css";
 // ------ React Router Dom ------
 import { useSearchParams, useNavigate } from "react-router-dom";
 // ------ Components ------
@@ -11,6 +9,8 @@ import HeaderComponent from "../Components/HeaderComponent";
 import CartComponent from "../Components/CartComponent";
 // Functions
 import { setDefaultLanguage } from "../functions/language";
+// ------ CSS ------
+import "../CSS/CategoryPage.css";
 
 const CategoryPage = () => {
   const [selectLanguage, setSelectLanguage] = useState("th");
