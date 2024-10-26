@@ -10,12 +10,18 @@
   margin: 1rem;
 }
 .menu-box {
+  cursor: pointer;
   display: flex;
   width: 400px;
   height: 130px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 7px;
   margin: 1rem;
+  transition: all 0.2s;
+}
+.menu-box:hover {
+  transform: scale(1.04);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 14px;
 }
 .menu-name {
   margin-top: 0.5rem;
