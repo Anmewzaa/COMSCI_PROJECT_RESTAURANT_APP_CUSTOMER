@@ -13,7 +13,7 @@
   cursor: pointer;
   display: flex;
   width: 390px;
-  height: 130px;
+  /* height: 130px; */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 7px;
   margin: 0.4rem 1rem;
@@ -25,11 +25,11 @@
 }
 .menu-name {
   margin-top: 0.5rem;
+  color: #333;
 }
 .menu-box-container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 0 1rem;
   place-items: center;
 }
 .menu-price {
@@ -107,17 +107,20 @@
   padding-bottom: 15px;
 }
 @media screen and (min-width: 390px) {
-  .menu-box {
+  .menu-box-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .menu-box {
+    width: 355px;
   }
 }
 @media screen and (min-width: 430px) {
-  .menu-box {
+  .menu-box-container {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 @media screen and (min-width: 630px) {
-  .menu-box {
+  .menu-box-container {
     grid-template-columns: repeat(1, 1fr);
   }
 }
