@@ -37,7 +37,7 @@ const HeaderComponent = () => {
   return (
     <div className="header-container">
       <div className="restautant-name-container">
-        <h2 className="sarabun-bold">Paradise Steak House</h2>
+        <h2 className="sarabun-bold">Paradise Steak House !</h2>
         <div>
           <button className="btn btn-thai" onClick={() => changeLangauge("th")}>
             THA
