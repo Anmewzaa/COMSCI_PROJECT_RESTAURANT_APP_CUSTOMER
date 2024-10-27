@@ -12,12 +12,16 @@
 .menu-box {
   cursor: pointer;
   display: flex;
-  width: 390px;
-  /* height: 130px; */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 7px;
   margin: 0.4rem 1rem;
   transition: all 0.2s;
+  width: 390px;
+}
+.menu-box-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  place-items: center;
 }
 .menu-box:hover {
   transform: scale(1.04);
@@ -27,11 +31,7 @@
   margin-top: 0.5rem;
   color: #333;
 }
-.menu-box-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  place-items: center;
-}
+
 .menu-price {
   color: var(--primary-color);
 }
@@ -106,7 +106,7 @@
 .option-box {
   padding-bottom: 15px;
 }
-@media screen and (min-width: 390px) {
+@media screen and (max-width: 390px) {
   .menu-box-container {
     grid-template-columns: repeat(1, 1fr);
   }
