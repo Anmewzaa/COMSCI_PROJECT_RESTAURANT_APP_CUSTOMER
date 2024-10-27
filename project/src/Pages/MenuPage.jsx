@@ -11,6 +11,7 @@ import { Button, Drawer, message, Radio } from "antd";
 // Components
 import HeaderComponent from "../Components/HeaderComponent";
 import BackComponent from "../Components/BackComponent";
+import CartComponent from "../Components/CartComponent";
 
 const MenuPage = () => {
   const [searchParam] = useSearchParams();
@@ -196,6 +197,7 @@ const MenuPage = () => {
             block
             onClick={() => {
               setMenuToLocalStorage();
+              onClose();
             }}
             className="add-menu-button"
           >
@@ -204,6 +206,7 @@ const MenuPage = () => {
         </Drawer>
       </div>
       <BackComponent />
+      <CartComponent />
     </div>
   );
 };
