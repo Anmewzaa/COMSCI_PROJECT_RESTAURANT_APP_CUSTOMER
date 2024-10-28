@@ -4,9 +4,11 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { FloatButton } from "antd";
 // ------ React Router Dom ------
-import { useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 const BackComponent = ({ data }) => {
+  const [searchParam] = useSearchParams();
+  const id = searchParam.get("id");
   const navigate = useNavigate();
   return (
     <>
@@ -14,7 +16,7 @@ const BackComponent = ({ data }) => {
         icon={<ArrowLeftOutlined />}
         tooltip={data == "th" ? <>กลับ</> : <>Back</>}
         onClick={() =>
-          navigate("/order?id=5092de9c-3179-489e-aece-cf934e826f0f")
+          navigate(`/order?id=${id}&language=${data == "th" ? "eng" : "th"}`)
         }
         style={{ left: 24 }}
       />
