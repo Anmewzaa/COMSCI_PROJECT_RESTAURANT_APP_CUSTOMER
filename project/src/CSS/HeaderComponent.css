@@ -1,0 +1,39 @@
+.header-container {
+  margin: 0 1rem;
+}
+
+.restautant-name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.btn {
+  width: 45px;
+  height: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-eng {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  background: transparent;
+}
+.btn-thai {
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  margin-right: 5px;
+}
+
+.restautant-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.return-button {
+  color: var(--primary-color);
+  font-size: 20px;
+}
