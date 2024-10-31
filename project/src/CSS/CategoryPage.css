@@ -27,13 +27,19 @@
 .category-box .category-image-box img {
   width: 100%;
   border-radius: 5px;
+  height: 200px;
 }
 .category-box .category-food-text {
   font-size: 18px;
   color: #333;
-  margin: 0.2rem 0.6rem;
+  margin: 0.4rem 0.6rem;
 }
 
+@media screen and (min-width: 390px) {
+  .category-grid-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media screen and (min-width: 430px) {
   .category-grid-box {
     grid-template-columns: repeat(2, 1fr);

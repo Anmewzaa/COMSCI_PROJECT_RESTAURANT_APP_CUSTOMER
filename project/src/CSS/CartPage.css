@@ -7,14 +7,34 @@
   margin: 1rem;
 }
 
+.cart-container .cart-empty {
+  margin: 4rem;
+}
+
+.history-food-container {
+  display: flex;
+  justify-content: space-between;
+}
+.history-food-container p {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.history-food-container .btn {
+  width: 40px;
+  cursor: pointer;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  color: white;
+  border-radius: 15px;
+}
+
 .bucket-box1,
 .bucket-box2 {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: 1rem;
+  margin-bottom: 1rem;
   background-color: #fff;
 }
 
@@ -58,7 +78,7 @@
 .order-total {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  margin: 1rem 0;
   font-size: 1rem;
   font-weight: bold;
 }
@@ -75,16 +95,14 @@
 .button-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  gap: 1rem;
 }
 
 .button-add-more,
 .button-order {
-  flex: 1;
-  margin: 0 5px;
+  width: 100%;
   padding: 10px;
   border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
 }
 
