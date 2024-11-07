@@ -193,21 +193,26 @@ const CartPage = () => {
                   </div>
                 </div>
                 <div className="bucket-box2">
-                  {/* {JSON.stringify(historyOrder)} */}
-                  {historyOrder && historyOrder.length > 0 ? (
+                  {historyOrder &&
+                  historyOrder.table_order &&
+                  historyOrder.table_order.length > 0 ? (
                     <>
-                      {historyOrder.map((item, index) => {
+                      {historyOrder.table_order.map((item, index) => {
                         return (
                           <div key={index}>
                             <div className="orderlist">
                               <div className="order-count">x1</div>
                               <div className="order-details">
-                                <div className="order-name">สเต็กปลาดอลลี่</div>
+                                <div className="order-name">
+                                  {item.menu.menu_name.thai}
+                                </div>
                                 <div className="order-status">
                                   สถานะ: กำลังปรุง
                                 </div>
                               </div>
-                              <div className="order-price">฿ 129.00</div>
+                              <div className="order-price">
+                                {item.menu.menu_price} บาท
+                              </div>
                             </div>
                           </div>
                         );
