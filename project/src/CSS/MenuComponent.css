@@ -1,0 +1,17 @@
+.menu-container {
+  padding: 1rem 0;
+}
+.menu-container:first-child {
+  padding: 0;
+}
+.menu-container .menu-box {
+  margin: 0 1rem;
+}
+.menu-container .menu-box .menu-text {
+  margin-bottom: 1rem;
+}
+.menu-container .menu-box .card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}

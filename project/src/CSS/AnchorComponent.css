@@ -1,0 +1,22 @@
+.anchor-box {
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 1000;
+  margin: 0 1rem;
+}
+.ant-anchor {
+  background-color: transparent;
+}
+.ant-anchor-wrapper {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.anchor-box .ant-anchor-link-title.thai {
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+}
+
+.anchor-box .ant-anchor-link-title.english {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}

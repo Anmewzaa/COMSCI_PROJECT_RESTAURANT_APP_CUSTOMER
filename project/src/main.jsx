@@ -2,8 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./global.css";
 //------ Page -------
-import CategoryPage from "./Pages/CategoryPage";
-import MenuPage from "./Pages/MenuPage";
+// import CategoryPage from "./Pages/CategoryPage";
+// import MenuPage from "./Pages/MenuPage";
+// import CartPage from "./Pages/CartPage";
+import HomePage from "./Pages/HomePage";
 import CartPage from "./Pages/CartPage";
 //------ React Router ------
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -13,14 +15,10 @@ import { Result } from "antd";
 const router = createBrowserRouter([
   {
     path: "/order",
-    element: <CategoryPage />,
+    element: <HomePage />,
   },
   {
-    path: "/order/categories",
-    element: <MenuPage />,
-  },
-  {
-    path: "/order/cart",
+    path: "/cart",
     element: <CartPage />,
   },
   {

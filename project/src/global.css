@@ -7,98 +7,174 @@
   box-sizing: border-box;
 }
 
-.sarabun-thin {
-  font-family: "Sarabun", sans-serif;
+.prompt-thin {
+  font-family: "Prompt", sans-serif;
   font-weight: 100;
   font-style: normal;
 }
 
-.sarabun-extralight {
-  font-family: "Sarabun", sans-serif;
+.prompt-extralight {
+  font-family: "Prompt", sans-serif;
   font-weight: 200;
   font-style: normal;
 }
 
-.sarabun-light {
-  font-family: "Sarabun", sans-serif;
+.prompt-light {
+  font-family: "Prompt", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
-.sarabun-regular {
-  font-family: "Sarabun", sans-serif;
+.prompt-regular {
+  font-family: "Prompt", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.sarabun-medium {
-  font-family: "Sarabun", sans-serif;
+.prompt-medium {
+  font-family: "Prompt", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
-.sarabun-semibold {
-  font-family: "Sarabun", sans-serif;
+.prompt-semibold {
+  font-family: "Prompt", sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 
-.sarabun-bold {
-  font-family: "Sarabun", sans-serif;
+.prompt-bold {
+  font-family: "Prompt", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
-.sarabun-extrabold {
-  font-family: "Sarabun", sans-serif;
+.prompt-extrabold {
+  font-family: "Prompt", sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
-.sarabun-thin-italic {
-  font-family: "Sarabun", sans-serif;
+.prompt-black {
+  font-family: "Prompt", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.prompt-thin-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 100;
   font-style: italic;
 }
 
-.sarabun-extralight-italic {
-  font-family: "Sarabun", sans-serif;
+.prompt-extralight-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 200;
   font-style: italic;
 }
 
-.sarabun-light-italic {
-  font-family: "Sarabun", sans-serif;
+.prompt-light-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 300;
   font-style: italic;
 }
 
-.sarabun-regular-italic {
-  font-family: "Sarabun", sans-serif;
+.prompt-regular-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
-.sarabun-medium-italic {
-  font-family: "Sarabun", sans-serif;
+.prompt-medium-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 500;
   font-style: italic;
 }
 
-.sarabun-semibold-italic {
-  font-family: "Sarabun", sans-serif;
+.prompt-semibold-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 600;
   font-style: italic;
 }
 
-.sarabun-bold-italic {
-  font-family: "Sarabun", sans-serif;
+.prompt-bold-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
-.sarabun-extrabold-italic {
-  font-family: "Sarabun", sans-serif;
+.prompt-extrabold-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 800;
   font-style: italic;
+}
+
+.prompt-black-italic {
+  font-family: "Prompt", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.inter-thin {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.inter-extralight {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.inter-light {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.inter-regular {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-medium {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.inter-semibold {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.inter-bold {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.inter-extrabold {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.inter-black {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
 }
