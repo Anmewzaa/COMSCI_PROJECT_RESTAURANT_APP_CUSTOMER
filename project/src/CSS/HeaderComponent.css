@@ -5,7 +5,7 @@
   align-items: center;
 }
 .header-container .language-container button {
-  margin-left: 0.4rem;
+  margin-left: 0.2rem;
 }
 .qrcode-container {
   display: flex;
@@ -19,7 +19,17 @@
   margin-bottom: 1rem;
 }
 .qrcode-container .table-number {
-  background: rgb(213, 213, 213);
+  background: rgb(233, 233, 233);
   padding: 0.6rem 1rem;
   border-radius: 30px;
+}
+
+.drawer-container {
+  margin-bottom: 2rem;
+}
+.drawer-container .text-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }

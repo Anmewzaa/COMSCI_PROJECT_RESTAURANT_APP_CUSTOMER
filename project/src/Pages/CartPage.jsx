@@ -1,7 +1,8 @@
 // Axios
 import axios from "axios";
 // Andt
-import { Button, Divider, Tag } from "antd";
+import { Button, Divider, Tag, Spin } from "antd";
+import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 // CSS
 import "../CSS/CartPage.css";
 // Components
@@ -10,16 +11,19 @@ import BackComponent from "../Components/BackComponent";
 // React
 import { useState, useEffect } from "react";
 // React Router Dom
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   // REACT ROUTER DOM
+  const navigate = useNavigate();
   const [searchParam] = useSearchParams();
   // VARIABLE
   const id = searchParam.get("id");
   const language = searchParam.get("language");
   const [current, setCurrent] = useState([]);
   const [history, setHistory] = useState([]);
+  const [table, setTable] = useState([]);
+  const [loading, setLoading] = useState(true);
   // FETCH API
   const fetchData = () => {
     try {
@@ -44,10 +48,25 @@ const CartPage = () => {
       console.log(err);
     }
   };
+  const fetchTable = () => {
+    try {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/table/get/${id}`)
+        .then((data) => {
+          if (data?.data?.response) {
+            setTable(data.data.response);
+            setLoading(false);
+          }
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   // USE EFFECT
   useEffect(() => {
     fetchData();
     fetchHistory();
+    fetchTable();
   }, []);
 
   const calculateTotal = (data) => {
@@ -63,7 +82,7 @@ const CartPage = () => {
   const historyTotal = calculateTotal(history);
 
   const isCurrentEmpty = current.length === 0;
-  const isHistoryEmpty = !Array.isArray(history) || history.length === 0;
+  const isHistoryEmpty = !Array.isArray(history) && history.length === 0;
 
   const sendOrder = () => {
     try {
@@ -86,112 +105,252 @@ const CartPage = () => {
           },
         })
         .then(() => {
-          console.log("success");
           localStorage.removeItem("cart");
+          localStorage.clear();
+          navigate(`/order?id=${id}&language=${language}`);
         });
     } catch (err) {
       console.log(err);
     }
   };
 
+  const deleteOrder = (indexToRemove) => {
+    const updatedOrders = current.table_order.filter(
+      (item, index) => index !== indexToRemove
+    );
+
+    const updatedCurrent = { ...current, table_order: updatedOrders };
+    setCurrent(updatedCurrent);
+
+    if (updatedOrders.length === 0) {
+      localStorage.removeItem("cart");
+      window.location.reload();
+    } else {
+      localStorage.setItem("cart", JSON.stringify(updatedCurrent));
+    }
+  };
+
   return (
     <>
-      <HeaderComponent table={history} language={language} />
-      <div className="cart-container">
-        {isCurrentEmpty && isHistoryEmpty ? (
-          <div className="cart-box-empty">
-            <h4>ยังไม่มีรายการที่สั่ง</h4>
-            <div className="cart-box-empty-text">
-              <p>หากสั่งอาหารแล้ว</p>
-              <p>คุณสามารถติดตามสถานะรายการอาหารได้ที่หน้านี้</p>
-            </div>
-            <Button>สั่งอาหาร</Button>
-          </div>
-        ) : (
-          <div className="cart-box">
-            {isCurrentEmpty ? (
-              <>
-                <div className="more-food-container">
-                  <h4>ยังไม่มีรายการในตระกร้า</h4>
-                  <Button>สั่งอาหารเพิ่ม</Button>
+      {loading ? (
+        <>
+          <Spin fullscreen />
+        </>
+      ) : (
+        <>
+          <HeaderComponent table={table} language={language} />
+          <div className="cart-container">
+            {isCurrentEmpty && isHistoryEmpty ? (
+              <div className="cart-box-empty">
+                <h4 className="prompt-medium">ยังไม่มีรายการที่สั่ง</h4>
+                <div className="cart-box-empty-text prompt-regular">
+                  <p>หากสั่งอาหารแล้ว</p>
+                  <p>คุณสามารถติดตามสถานะรายการอาหารได้ที่หน้านี้</p>
                 </div>
-              </>
+                <Button
+                  onClick={() => {
+                    navigate(`/order?id=${id}&language=${language}`);
+                  }}
+                  className="prompt-medium"
+                >
+                  สั่งอาหาร
+                </Button>
+              </div>
             ) : (
-              <>
-                <h2>อาหารในตระกร้า</h2>
-                <div className="order-container">
-                  {current?.table_order?.map((item, index) => {
-                    return (
-                      <div key={index}>
-                        <div className="order-box">
-                          <div className="order-box-text">
-                            <h4>{item?.menu.menu_name.thai}</h4>
-                            <p className="option">
-                              {item.option.map((item, index) => {
-                                return <Tag key={index}>{item.value}</Tag>;
-                              })}
-                            </p>
+              <div className="cart-box">
+                {isCurrentEmpty ? (
+                  <>
+                    <div className="more-food-container">
+                      <h4 className="prompt-medium">ยังไม่มีรายการในตระกร้า</h4>
+                      <Button className="prompt-medium">สั่งอาหารเพิ่ม</Button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <>
+                      {language === "th" ? (
+                        <>
+                          <h2 className="prompt-medium">อาหารในตะกร้า</h2>
+                        </>
+                      ) : (
+                        <>
+                          <h2 className="inter-medium">Cart</h2>
+                        </>
+                      )}
+                    </>
+                    <div className="order-container">
+                      {current?.table_order?.map((item, index) => {
+                        return (
+                          <div key={index}>
+                            <div className="order-box">
+                              <div className="order-box-text">
+                                {language === "th" ? (
+                                  <>
+                                    <h4 className="prompt-medium">
+                                      {item?.menu.menu_name.thai}
+                                    </h4>
+                                  </>
+                                ) : (
+                                  <>
+                                    <h4 className="inter-medium">
+                                      {item?.menu.menu_name.english}
+                                    </h4>
+                                  </>
+                                )}
+                                <p className="option prompt-regular">
+                                  {item.option.map((item, index) => {
+                                    return <div key={index}>{item.value}</div>;
+                                  })}
+                                </p>
+                              </div>
+                              <div className="order-box-btn">
+                                {language === "th" ? (
+                                  <>
+                                    <p className="prompt-regular">
+                                      {item?.menu.menu_price} บาท
+                                    </p>
+                                  </>
+                                ) : (
+                                  <>
+                                    <p className="inter-regular">
+                                      {item?.menu.menu_price} Bath
+                                    </p>
+                                  </>
+                                )}
+                                <div
+                                  className="btn-delete"
+                                  onClick={() => deleteOrder(index)}
+                                >
+                                  <DeleteOutlined />
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                          <div>
-                            <p>{item?.menu.menu_price} บาท</p>
-                          </div>
-                        </div>
-                        <Divider />
+                        );
+                      })}
+                      <Divider />
+                      <div>
+                        <Button
+                          type="link"
+                          className="addmorefood "
+                          onClick={() => {
+                            navigate(`/order?id=${id}&language=${language}`);
+                          }}
+                        >
+                          <PlusOutlined />
+                          {language === "th" ? (
+                            <div className="prompt-medium">
+                              เลือกรายการอาหารเพิ่ม
+                            </div>
+                          ) : (
+                            <div className="inter-medium">Add more food</div>
+                          )}
+                        </Button>
                       </div>
-                    );
-                  })}
-                  <div className="price-summary">
-                    <h4>รวมราคาทั้งหมด</h4>
-                    <p>{currentTotal} บาท</p>
-                  </div>
-                  <div>
-                    {/* <Button block size="large">
-                      สั่งอาหารเพิ่ม
-                    </Button> */}
-                    <Button block size="large" onClick={sendOrder}>
-                      ส่งรายการอาหาร
-                    </Button>
-                  </div>
-                </div>
-              </>
-            )}
-            {isHistoryEmpty ? (
-              <></>
-            ) : (
-              <>
-                <h2>อาหารที่สั่งไปแล้ว</h2>
-                <div className="order-container">
-                  {history?.table_order?.map((item, index) => {
-                    return (
-                      <div key={index}>
-                        <div className="order-box">
-                          <div className="order-box-text">
-                            <h4>{item?.menu?.menu_name.thai}</h4>
-                            <p className="option">
-                              {item?.option.map((item, index) => {
-                                return <Tag key={index}>{item}</Tag>;
-                              })}
-                            </p>
-                          </div>
-                          <div>
-                            <p>{item?.menu?.menu_price} บาท</p>
-                          </div>
-                        </div>
-                        <Divider />
+                      <div>
+                        <Button
+                          block
+                          size="large"
+                          onClick={sendOrder}
+                          className="prompt-medium"
+                        >
+                          {language === "th" ? (
+                            <div className="prompt-medium">
+                              ส่งรายการอาหาร {currentTotal} บาท
+                            </div>
+                          ) : (
+                            <div className="inter-medium">
+                              Send {currentTotal} Bath
+                            </div>
+                          )}
+                        </Button>
                       </div>
-                    );
-                  })}
-                  <div className="price-summary">
-                    <h4>รวมราคาทั้งหมด</h4>
-                    <p>{historyTotal} บาท</p>
-                  </div>
-                </div>
-              </>
+                    </div>
+                  </>
+                )}
+                {isHistoryEmpty ? (
+                  <></>
+                ) : (
+                  <>
+                    <>
+                      {language === "th" ? (
+                        <>
+                          <h2 className="prompt-medium">อาหารที่สั่งไปแล้ว</h2>
+                        </>
+                      ) : (
+                        <>
+                          <h2 className="inter-medium">History</h2>
+                        </>
+                      )}
+                    </>
+                    <div className="order-container">
+                      {history?.table_order?.map((item, index) => {
+                        return (
+                          <div key={index}>
+                            <div className="order-box">
+                              <div className="order-box-text">
+                                {language === "th" ? (
+                                  <>
+                                    <h4 className="prompt-medium">
+                                      {item?.menu.menu_name.thai}
+                                    </h4>
+                                  </>
+                                ) : (
+                                  <>
+                                    <h4 className="inter-medium">
+                                      {item?.menu.menu_name.english}
+                                    </h4>
+                                  </>
+                                )}
+                                <p className="option prompt-regular">
+                                  {item?.option.map((item, index) => {
+                                    return <div key={index}>{item}</div>;
+                                  })}
+                                </p>
+                              </div>
+                              <div>
+                                {language === "th" ? (
+                                  <>
+                                    <p className="prompt-regular">
+                                      {item?.menu.menu_price} บาท
+                                    </p>
+                                  </>
+                                ) : (
+                                  <>
+                                    <p className="inter-regular">
+                                      {item?.menu.menu_price} Bath
+                                    </p>
+                                  </>
+                                )}
+                              </div>
+                            </div>
+                            <Divider />
+                          </div>
+                        );
+                      })}
+                      <div className="price-summary">
+                        {language === "th" ? (
+                          <>
+                            <h4 className="prompt-bold">รวมราคาทั้งหมด</h4>
+                            <p className="prompt-regular">{historyTotal} บาท</p>
+                          </>
+                        ) : (
+                          <>
+                            <h4 className="inter-bold">Total price</h4>
+                            <p className="inter-regular">{historyTotal} Bath</p>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                    <div className="freespace"></div>
+                  </>
+                )}
+              </div>
             )}
           </div>
-        )}
-      </div>
-      <BackComponent id={id} language={language} />
+          <BackComponent id={id} language={language} />
+        </>
+      )}
     </>
   );
 };

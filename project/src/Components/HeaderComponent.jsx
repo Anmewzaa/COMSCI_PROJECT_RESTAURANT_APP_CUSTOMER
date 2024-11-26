@@ -30,21 +30,18 @@ const HeaderComponent = ({ table, language }) => {
               {<DownOutlined />}
             </div>
           ) : (
-            <>
+            <div className="inter-medium">
               Paraise Steak House | Table no. {table?.table_number}{" "}
               {<DownOutlined />}
-            </>
+            </div>
           )}
         </Button>
         <div className="language-container">
-          <Button
-            className="prompt-medium"
-            onClick={() => changeLanguage("th")}
-          >
+          <Button className="inter-medium" onClick={() => changeLanguage("th")}>
             TH
           </Button>
           <Button
-            className="prompt-medium"
+            className="inter-medium"
             onClick={() => changeLanguage("eng")}
           >
             ENG
@@ -52,7 +49,7 @@ const HeaderComponent = ({ table, language }) => {
         </div>
       </div>
       <Drawer
-        title="Paradise Steak House"
+        title="ข้อมูลโต๊ะ"
         placement={"bottom"}
         width={500}
         onClose={() => {
@@ -61,12 +58,80 @@ const HeaderComponent = ({ table, language }) => {
         open={tableInfo}
       >
         <>
+          <div className="drawer-container">
+            <div className="text-container">
+              {language === "th" ? (
+                <>
+                  <h4 className="prompt-semibold">โต๊ะที่</h4>
+                  <span className="prompt-regular">{table.table_number}</span>
+                </>
+              ) : (
+                <>
+                  <h4 className="inter-semibold">Table no.</h4>
+                  <span className="inter-regular">{table.table_number}</span>
+                </>
+              )}
+            </div>
+            <div className="text-container">
+              {language === "th" ? (
+                <>
+                  <h4 className="prompt-semibold">จำนวนที่นั่ง</h4>
+                  <span className="prompt-regular">{table.table_seat}</span>
+                </>
+              ) : (
+                <>
+                  <h4 className="inter-semibold">Table seat</h4>
+                  <span className="inter-regular">{table.table_seat}</span>
+                </>
+              )}
+            </div>
+            <div className="text-container">
+              {language === "th" ? (
+                <>
+                  <h4 className="prompt-semibold">โซนที่นั่ง</h4>
+                  <span className="prompt-regular">
+                    {table?.table_zone?.[0]?.zone_name || ""}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <h4 className="inter-semibold">Zone</h4>
+                  <span className="inter-regular">
+                    {table?.table_zone?.[0]?.zone_name || ""}
+                  </span>
+                </>
+              )}
+            </div>
+            <div className="text-container">
+              {language === "th" ? (
+                <>
+                  <h4 className="prompt-semibold">พนักงานดูแลโต๊ะ</h4>
+                  <span className="prompt-regular">
+                    {table?.table_employee?.[0]?.user_fullname || ""}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <h4 className="inter-semibold">Waiter/Waitress</h4>
+                  <span className="inter-regular">
+                    {table?.table_employee?.[0]?.user_fullname || ""}
+                  </span>
+                </>
+              )}
+            </div>
+          </div>
           <Button
             onClick={() => {
               setQrcodeInfo(true);
             }}
+            size="large"
+            block
           >
-            {language === "th" ? <>เปิด QR CODE</> : <>Click QR CODE</>}
+            {language === "th" ? (
+              <div className="prompt-medium">เปิด QR CODE</div>
+            ) : (
+              <div className="inter-medium">Open QR CODE</div>
+            )}
           </Button>
         </>
       </Drawer>
@@ -80,12 +145,23 @@ const HeaderComponent = ({ table, language }) => {
         open={qrcodeInfo}
       >
         <div className="qrcode-container">
-          <h2>แชร์ QR ให้เพื่อน</h2>
-          <p>เพียงให้เพื่อนสแกน QR Code</p>
-          <p className="table-number">โต๊ะที่ 1</p>
+          {language === "th" ? (
+            <>
+              <h2 className="prompt-medium">แชร์ QR ให้เพื่อน</h2>
+              <p className="prompt-regular">เพียงให้เพื่อนสแกน QR Code</p>
+              <p className="table-number prompt-medium">โต๊ะที่ 1</p>
+            </>
+          ) : (
+            <>
+              <h2 className="inter-medium">Share QR with friend</h2>
+              <p className="inter-regular">Just scan QR Code</p>
+              <p className="table-number inter-medium">Table no. 1</p>
+            </>
+          )}
+
           <div>
             <QRCode
-              value={"www.google.com"}
+              value={window.location.href}
               icon={logo}
               errorLevel={"H"}
               size={250}

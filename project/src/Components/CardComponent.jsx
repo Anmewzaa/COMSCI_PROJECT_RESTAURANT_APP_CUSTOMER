@@ -19,6 +19,14 @@ const CardComponent = ({ menu, language }) => {
     });
   };
 
+  const isAllOptionsSelected = menu.menu_option_id
+    ? menu.menu_option_id.every((option) =>
+        selectedOptions.some(
+          (selected) => selected.option_id === option.option_id
+        )
+      )
+    : true;
+
   const addItemToCart = () => {
     const cartData = JSON.parse(localStorage.getItem("cart")) || {
       table_order: [],
@@ -46,14 +54,14 @@ const CardComponent = ({ menu, language }) => {
           {language === "th" ? (
             <div className="prompt-medium">{menu?.menu_name.thai}</div>
           ) : (
-            <div className="">{menu?.menu_name.english}</div>
+            <div className="inter-medium">{menu?.menu_name.english}</div>
           )}
         </div>
         <div>
           {language === "th" ? (
             <div className="prompt-light">{menu?.menu_price} บาท</div>
           ) : (
-            <>{menu?.menu_price} Bath</>
+            <div className="inter-light">{menu?.menu_price} Bath</div>
           )}
         </div>
       </div>
@@ -83,6 +91,19 @@ const CardComponent = ({ menu, language }) => {
               <>{menu.menu_name.english}</>
             )}
           </div>
+          <div className="price-text">
+            {language === "th" ? (
+              <>
+                <h4 className="prompt-regular">ราคา</h4>
+                <span>{menu.menu_price} บาท</span>
+              </>
+            ) : (
+              <>
+                <h4 className="prompt-regular">price</h4>
+                <span>{menu.menu_price} Bath</span>
+              </>
+            )}
+          </div>
           <div className="sub-text">
             {language === "th" ? (
               <div className="prompt-regular">{menu.menu_describe.thai}</div>
@@ -109,8 +130,10 @@ const CardComponent = ({ menu, language }) => {
                         <p className="option-text prompt-semibold">
                           {option.option_name.thai}
                         </p>
-                        <p className={`select-text prompt-regular`}>
-                          เสร็จเรียบร้อย
+                        <p className={`select-text prompt-medium`}>
+                          {isOptionSelected
+                            ? "เสร็จเรียบร้อย"
+                            : "เลือก 1 รายการ"}
                         </p>
                       </div>
                       <div
@@ -119,10 +142,10 @@ const CardComponent = ({ menu, language }) => {
                         }`}
                       >
                         <div className="flip-card-inner prompt-medium ">
-                          <div className="flip-card-back prompt-semibold">
+                          <div className="flip-card-back prompt-bold">
                             เลือกแล้ว
                           </div>
-                          <div className="flip-card-front prompt-semibold">
+                          <div className="flip-card-front prompt-bold">
                             ต้องการ
                           </div>
                         </div>
@@ -157,7 +180,13 @@ const CardComponent = ({ menu, language }) => {
                 );
               })}
           </div>
-          <Button block onClick={addItemToCart} className="prompt-bold">
+          <Button
+            block
+            onClick={addItemToCart}
+            disabled={!isAllOptionsSelected}
+            className="prompt-bold"
+            size="large"
+          >
             เพิ่มลงในตะกร้า
           </Button>
         </>

@@ -14,22 +14,28 @@
   align-items: center;
 }
 .cart-container .cart-box-empty h4 {
+  font-size: 22px;
   margin-bottom: 1rem;
 }
 .cart-container .cart-box-empty .cart-box-empty-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+.cart-container .cart-box-empty .cart-box-empty-text p {
+  margin-bottom: 0.6rem;
+  text-align: center;
 }
 
 .cart-container .cart-box h2 {
+  font-size: 20px;
+  margin-left: 0.4rem;
   margin-bottom: 1rem;
 }
 .cart-container .cart-box .order-container {
   background: white;
   border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -43,10 +49,13 @@
 .cart-container .cart-box .more-food-container h4 {
   margin-bottom: 2rem;
 }
+.order-container .addmorefood {
+  color: black;
+  padding-left: 0;
+}
 .order-container .price-summary {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.4rem;
 }
 .order-container button {
   margin-bottom: 1rem;
@@ -56,10 +65,32 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
+}
+
+.order-box .order-box-text h4 {
+  font-size: 16px;
+  margin-bottom: 0.4rem;
 }
 .order-box .order-box-text p {
   color: gray;
 }
-.order-box .order-box-text h4 {
+.order-box .order-box-text .option {
+  font-size: 14px;
+}
+.order-box p {
   margin-bottom: 0.4rem;
+}
+.order-box .order-box-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+}
+.order-box .order-box-btn .btn-delete {
+  cursor: pointer;
+}
+
+.freespace {
+  height: 100px;
 }
