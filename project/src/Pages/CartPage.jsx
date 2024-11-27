@@ -268,7 +268,7 @@ const CartPage = () => {
                     </div>
                   </>
                 )}
-                {isHistoryEmpty ? (
+                {/* {isHistoryEmpty ? (
                   <></>
                 ) : (
                   <>
@@ -344,7 +344,7 @@ const CartPage = () => {
                     </div>
                     <div className="freespace"></div>
                   </>
-                )}
+                )} */}
               </div>
             )}
           </div>
