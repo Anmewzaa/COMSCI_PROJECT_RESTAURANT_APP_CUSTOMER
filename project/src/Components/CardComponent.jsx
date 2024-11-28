@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 // Ant Design
-import { Drawer, Radio, Button, message } from "antd";
+import { Drawer, Radio, Button, message, Input } from "antd";
+const { TextArea } = Input;
 // Component
 import "../CSS/CardComponent.css";
 // React
@@ -45,7 +46,15 @@ const CardComponent = ({ menu, language }) => {
 
   return (
     <>
-      <div className="card-box" onClick={() => setOpen(true)}>
+      <div
+        className={`card-box`}
+        onClick={() => menu.menu_status && setOpen(true)}
+      >
+        {!menu.menu_status && (
+          <div className="inactive-menu">
+            <span className="prompt-medium">เมนูหมด</span>
+          </div>
+        )}
         <img
           src={`${import.meta.env.VITE_API_URL}/images/${menu.menu_image}`}
           alt="Food Image"
@@ -84,31 +93,45 @@ const CardComponent = ({ menu, language }) => {
             src={`${import.meta.env.VITE_API_URL}/images/${menu.menu_image}`}
             alt="menu-image"
           />
-          <div className="main-text">
-            {language === "th" ? (
-              <div className="prompt-bold">{menu.menu_name.thai}</div>
-            ) : (
-              <>{menu.menu_name.english}</>
-            )}
-          </div>
-          <div className="price-text">
-            {language === "th" ? (
-              <>
-                <h4 className="prompt-regular">ราคา</h4>
-                <span>{menu.menu_price} บาท</span>
-              </>
-            ) : (
-              <>
-                <h4 className="prompt-regular">price</h4>
-                <span>{menu.menu_price} Bath</span>
-              </>
-            )}
+          <div>
+            <div className="main-text">
+              {language === "th" ? (
+                <div>
+                  <h2 className="prompt-semibold">{menu.menu_name.thai}</h2>
+                </div>
+              ) : (
+                <div>
+                  <h2 className="inter-semibold">{menu.menu_name.english}</h2>
+                </div>
+              )}
+            </div>
+            <div className="price-text">
+              {language === "th" ? (
+                <>
+                  <h4 className="prompt-semibold">ราคา</h4>
+                  <span className="inter-regular">{menu.menu_price} บาท</span>
+                </>
+              ) : (
+                <>
+                  <h4 className="prompt-bold">price</h4>
+                  <span className="inter-regular">{menu.menu_price} Bath</span>
+                </>
+              )}
+            </div>
           </div>
           <div className="sub-text">
             {language === "th" ? (
-              <div className="prompt-regular">{menu.menu_describe.thai}</div>
+              <div>
+                <span className="prompt-regular">
+                  {menu.menu_describe.thai}
+                </span>
+              </div>
             ) : (
-              <>{menu.menu_describe.english}</>
+              <div>
+                <span className="inter-regular">
+                  {menu.menu_describe.english}
+                </span>
+              </div>
             )}
           </div>
           <div className="menu-option-container">
@@ -142,10 +165,10 @@ const CardComponent = ({ menu, language }) => {
                         }`}
                       >
                         <div className="flip-card-inner prompt-medium ">
-                          <div className="flip-card-back prompt-bold">
+                          <div className="flip-card-back prompt-semibold">
                             เลือกแล้ว
                           </div>
-                          <div className="flip-card-front prompt-bold">
+                          <div className="flip-card-front prompt-semibold">
                             ต้องการ
                           </div>
                         </div>

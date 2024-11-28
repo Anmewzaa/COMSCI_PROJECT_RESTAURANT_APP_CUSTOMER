@@ -162,7 +162,14 @@ const CartPage = () => {
                   <>
                     <div className="more-food-container">
                       <h4 className="prompt-medium">ยังไม่มีรายการในตระกร้า</h4>
-                      <Button className="prompt-medium">สั่งอาหารเพิ่ม</Button>
+                      <Button
+                        className="prompt-medium"
+                        onClick={() => {
+                          navigate(`/order?id=${id}&language=${language}`);
+                        }}
+                      >
+                        สั่งอาหารเพิ่ม
+                      </Button>
                     </div>
                   </>
                 ) : (
@@ -268,7 +275,7 @@ const CartPage = () => {
                     </div>
                   </>
                 )}
-                {/* {isHistoryEmpty ? (
+                {isHistoryEmpty ? (
                   <></>
                 ) : (
                   <>
@@ -308,17 +315,37 @@ const CartPage = () => {
                                   })}
                                 </p>
                               </div>
-                              <div>
+                              <div className="order-box-btn">
                                 {language === "th" ? (
                                   <>
                                     <p className="prompt-regular">
                                       {item?.menu.menu_price} บาท
+                                    </p>
+                                    <p className="prompt-regular">
+                                      สถานะ:{" "}
+                                      {item.status === 1
+                                        ? "พึ่งสั่ง"
+                                        : item.status === 2
+                                        ? "กำลังทำ"
+                                        : item.status === 3
+                                        ? "เสร็จแล้ว"
+                                        : "ยกเลิก"}
                                     </p>
                                   </>
                                 ) : (
                                   <>
                                     <p className="inter-regular">
                                       {item?.menu.menu_price} Bath
+                                    </p>
+                                    <p className="inter-regular">
+                                      สถานะ:{" "}
+                                      {item.status === 1
+                                        ? "Just Ordered"
+                                        : item.status === 2
+                                        ? "In Progress"
+                                        : item.status === 3
+                                        ? "Completed"
+                                        : "Cancelled"}
                                     </p>
                                   </>
                                 )}
@@ -344,7 +371,7 @@ const CartPage = () => {
                     </div>
                     <div className="freespace"></div>
                   </>
-                )} */}
+                )}
               </div>
             )}
           </div>

@@ -5,9 +5,6 @@ import { Anchor } from "antd";
 import "../CSS/AnchorComponent.css";
 
 const AnchorComponent = ({ item, language }) => {
-  {
-    language === "th" ? <>เปิด QR CODE</> : <>Click QR CODE</>;
-  }
   const anchorItems = item.map((category, index) => ({
     key: category.category_id,
     href: `#${category.category_id}`,

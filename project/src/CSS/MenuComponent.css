@@ -12,6 +12,18 @@
 }
 .menu-container .menu-box .card-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
+}
+@media screen and (max-width: 1200px) {
+  .menu-container .menu-box .card-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .menu-container .menu-box .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
