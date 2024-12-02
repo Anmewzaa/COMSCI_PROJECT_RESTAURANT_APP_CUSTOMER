@@ -12,10 +12,11 @@ import CartComponent from "../Components/CartComponent";
 // React
 import { useState, useEffect } from "react";
 // React Router Dom
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   // REACT ROUTER DOM
+  const navigate = useNavigate();
   const [searchParam] = useSearchParams();
   // VARIABLE
   const id = searchParam.get("id");
@@ -57,6 +58,8 @@ const HomePage = () => {
         .then((data) => {
           if (data?.data?.response) {
             setTable(data.data.response);
+          } else {
+            navigate("error");
           }
           setLoading(false);
         });

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 // Ant Design
-import { Drawer, Radio, Button, message, Input } from "antd";
-const { TextArea } = Input;
+import { Drawer, Radio, Button, message } from "antd";
 // Component
 import "../CSS/CardComponent.css";
 // React
@@ -52,7 +51,11 @@ const CardComponent = ({ menu, language }) => {
       >
         {!menu.menu_status && (
           <div className="inactive-menu">
-            <span className="prompt-medium">เมนูหมด</span>
+            {language === "th" ? (
+              <span className="prompt-medium">เมนูหมด</span>
+            ) : (
+              <span className="inter-medium">Sold out</span>
+            )}
           </div>
         )}
         <img
@@ -150,14 +153,26 @@ const CardComponent = ({ menu, language }) => {
                   >
                     <div className="option-content">
                       <div>
-                        <p className="option-text prompt-semibold">
-                          {option.option_name.thai}
-                        </p>
-                        <p className={`select-text prompt-medium`}>
-                          {isOptionSelected
-                            ? "เสร็จเรียบร้อย"
-                            : "เลือก 1 รายการ"}
-                        </p>
+                        {language === "th" ? (
+                          <p className="option-text prompt-semibold">
+                            {option.option_name.thai}
+                          </p>
+                        ) : (
+                          <p className="option-text inter-semibold">
+                            {option.option_name.english}
+                          </p>
+                        )}
+                        {language === "th" ? (
+                          <p className={`select-text prompt-medium`}>
+                            {isOptionSelected
+                              ? "เสร็จเรียบร้อย"
+                              : "เลือก 1 รายการ"}
+                          </p>
+                        ) : (
+                          <p className={`select-text inter-medium`}>
+                            {isOptionSelected ? "completed" : "select 1"}
+                          </p>
+                        )}
                       </div>
                       <div
                         className={`flip-card ${
@@ -165,12 +180,24 @@ const CardComponent = ({ menu, language }) => {
                         }`}
                       >
                         <div className="flip-card-inner prompt-medium ">
-                          <div className="flip-card-back prompt-semibold">
-                            เลือกแล้ว
-                          </div>
-                          <div className="flip-card-front prompt-semibold">
-                            ต้องการ
-                          </div>
+                          {language === "th" ? (
+                            <div className="flip-card-back prompt-semibold">
+                              เลือกแล้ว
+                            </div>
+                          ) : (
+                            <div className="flip-card-back prompt-semibold">
+                              selected
+                            </div>
+                          )}
+                          {language === "th" ? (
+                            <div className="flip-card-front prompt-semibold">
+                              ต้องการ
+                            </div>
+                          ) : (
+                            <div className="flip-card-front inter-semibold">
+                              required
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -193,7 +220,15 @@ const CardComponent = ({ menu, language }) => {
                                 value={subOption.sub_option_name.thai}
                                 className="item"
                               >
-                                {subOption.sub_option_name.thai}
+                                {language === "th" ? (
+                                  <p className="option-text prompt-semibold">
+                                    {subOption.sub_option_name.thai}
+                                  </p>
+                                ) : (
+                                  <p className="option-text inter-semibold">
+                                    {subOption.sub_option_name.english}
+                                  </p>
+                                )}
                               </Radio>
                             );
                           })}
@@ -203,15 +238,28 @@ const CardComponent = ({ menu, language }) => {
                 );
               })}
           </div>
-          <Button
-            block
-            onClick={addItemToCart}
-            disabled={!isAllOptionsSelected}
-            className="prompt-bold"
-            size="large"
-          >
-            เพิ่มลงในตะกร้า
-          </Button>
+
+          {language === "th" ? (
+            <Button
+              block
+              onClick={addItemToCart}
+              disabled={!isAllOptionsSelected}
+              className="prompt-bold"
+              size="large"
+            >
+              เพิ่มลงในตะกร้า
+            </Button>
+          ) : (
+            <Button
+              block
+              onClick={addItemToCart}
+              disabled={!isAllOptionsSelected}
+              className="inter-bold"
+              size="large"
+            >
+              Add to cart
+            </Button>
+          )}
         </>
       </Drawer>
     </>

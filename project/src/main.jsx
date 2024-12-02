@@ -27,8 +27,8 @@ const router = createBrowserRouter([
       <>
         <Result
           status="404"
-          title="404"
-          subTitle="Sorry, the page you visited does not exist."
+          title="Page not found"
+          subTitle="ไม่มีการเปิดโต๊ะนี้หรือถ้านี้คือของผิดพลาดกรุณาติดต่อพนักงาน"
         />
       </>
     ),

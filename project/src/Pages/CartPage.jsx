@@ -82,7 +82,8 @@ const CartPage = () => {
   const historyTotal = calculateTotal(history);
 
   const isCurrentEmpty = current.length === 0;
-  const isHistoryEmpty = !Array.isArray(history) && history.length === 0;
+  const isHistoryEmpty =
+    history.table_order === undefined || history.table_order.length === 0;
 
   const sendOrder = () => {
     try {
@@ -142,19 +143,41 @@ const CartPage = () => {
           <div className="cart-container">
             {isCurrentEmpty && isHistoryEmpty ? (
               <div className="cart-box-empty">
-                <h4 className="prompt-medium">ยังไม่มีรายการที่สั่ง</h4>
-                <div className="cart-box-empty-text prompt-regular">
-                  <p>หากสั่งอาหารแล้ว</p>
-                  <p>คุณสามารถติดตามสถานะรายการอาหารได้ที่หน้านี้</p>
-                </div>
-                <Button
-                  onClick={() => {
-                    navigate(`/order?id=${id}&language=${language}`);
-                  }}
-                  className="prompt-medium"
-                >
-                  สั่งอาหาร
-                </Button>
+                {language === "th" ? (
+                  <>
+                    <h4 className="prompt-medium">ยังไม่มีรายการที่สั่ง</h4>
+                    <div className="cart-box-empty-text prompt-regular">
+                      <p>หากสั่งอาหารแล้ว</p>
+                      <p>คุณสามารถติดตามสถานะรายการอาหารได้ที่หน้านี้</p>
+                    </div>
+                    <Button
+                      onClick={() => {
+                        navigate(`/order?id=${id}&language=${language}`);
+                      }}
+                      className="prompt-medium"
+                    >
+                      สั่งอาหาร
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <h4 className="prompt-medium">
+                      No items have been ordered yet.
+                    </h4>
+                    <div className="cart-box-empty-text prompt-regular">
+                      <p>{`Once you've placed an order,`}</p>
+                      <p>you can track your order status on this page.</p>
+                    </div>
+                    <Button
+                      onClick={() => {
+                        navigate(`/order?id=${id}&language=${language}`);
+                      }}
+                      className="prompt-medium"
+                    >
+                      Order Now
+                    </Button>
+                  </>
+                )}
               </div>
             ) : (
               <div className="cart-box">
