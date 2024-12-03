@@ -166,7 +166,7 @@ const CartPage = () => {
                     </h4>
                     <div className="cart-box-empty-text prompt-regular">
                       <p>{`Once you've placed an order,`}</p>
-                      <p>you can track your order status on this page.</p>
+                      <p>You can track your order status on this page.</p>
                     </div>
                     <Button
                       onClick={() => {
