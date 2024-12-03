@@ -26,12 +26,12 @@ const HeaderComponent = ({ table, language }) => {
         <Button onClick={() => setTableInfo(true)}>
           {language === "th" ? (
             <div className="prompt-medium">
-              Paraise Steak House | โต๊ะที่ {table?.table_number}{" "}
+              Paradise Steak House | โต๊ะที่ {table?.table_number}{" "}
               {<DownOutlined />}
             </div>
           ) : (
             <div className="inter-medium">
-              Paraise Steak House | Table no. {table?.table_number}{" "}
+              Paradise Steak House | Table no. {table?.table_number}{" "}
               {<DownOutlined />}
             </div>
           )}
